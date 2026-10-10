@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Really Sorry Anshika ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow-x: hidden;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #65344f;
+  background: linear-gradient(135deg, #ffe0ed, #e9ddff, #fff0f5);
+}
+
+.card {
+  position: relative;
+  width: min(100%, 430px);
+  padding: 35px 23px;
+  text-align: center;
+  background: rgba(255,255,255,.78);
+  border: 1px solid white;
+  border-radius: 28px;
+  box-shadow: 0 15px 50px #ad6d9630;
+}
+
+.heart {
+  font-size: 55px;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.12); }
+}
+
+h1 {
+  font-size: 28px;
+  margin: 15px 0;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  min-height: 95px;
+  margin-top: 18px;
+}
+
+button {
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+#yes {
+  color: white;
+  background: linear-gradient(135deg, #ff65a3, #c46bdf);
+  box-shadow: 0 6px 18px #ed80b544;
+}
+
+#yes:hover { transform: scale(1.07); }
+
+#no {
+  color: #8d5272;
+  background: #f8e5f0;
+  position: relative;
+}
+
+#no.moving {
+  position: fixed;
+  z-index: 10;
+}
+
+.time {
+  display: inline-block;
+  margin-top: 14px;
+  color: #9c7790;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hidden { display: none; }
+
+#surprise {
+  animation: appear .6s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#hearts {
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+</style>
+</head>
+
+<body>
+<main class="card">
+  <section id="question">
+    <div class="heart">💗</div>
+
+    <h1>Hey, Anshika...</h1>
+
+    <p>
+      I have something important to tell you.
+      Please read this with an open heart.
+    </p>
+
+    <p>
+      I know I made a mistake, and I know my words
+      alone cannot fix the hurt I've caused you.
+      You trusted me, and I should have respected that trust.
+      I'm genuinely sorry.
+    </p>
+
+    <p>
+      I don't expect everything to become perfect
+      overnight. I want to earn your trust back through
+      honesty, patience, and my actions.
+    </p>
+
+    <h2>Would you give us a chance to rebuild? 🥺</h2>
+
+    <div class="buttons" id="buttonArea">
+      <button id="yes" onclick="showLove()">Yes 💗</button>
+      <button id="no">No 🙈</button>
+    </div>
+
+    <div class="time" onclick="showTime()">
+      I need more time 🤍
+    </div>
+  </section>
+
+  <section id="surprise" class="hidden">
+    <div class="heart">🫶🏻</div>
+    <h1>Thank you for hearing me ❤️</h1>
+
+    <p>
+      You mean so much to me, Anshika.
+      I know this is just a beginning, not a solution
+      to everything.
+    </p>
+
+    <p>
+      I promise to work on being more honest with you.
+      Even when the truth is uncomfortable,
+      you deserve to hear it from me.
+    </p>
+
+    <p>
+      No pressure to forget what happened.
+      I'll show you through my actions that
+      your trust matters to me.
+    </p>
+
+    <div id="hearts">💗 💕 💗</div>
+    <p>One day at a time. Together, if you choose. 🌷</p>
+  </section>
+</main>
+
+<script>
+const no = document.getElementById("no");
+const area = document.getElementById("buttonArea");
+
+function dodge() {
+  no.classList.add("moving");
+
+  const margin = 12;
+  const maxX = Math.max(0, window.innerWidth - no.offsetWidth - margin * 2);
+  const maxY = Math.max(0, window.innerHeight - no.offsetHeight - margin * 2);
+
+  no.style.left = (margin + Math.random() * maxX) + "px";
+  no.style.top = (margin + Math.random() * maxY) + "px";
+}
+
+no.addEventListener("pointerenter", dodge);
+
+no.addEventListener("click", () => {
+  dodge();
+});
+
+function showLove() {
+  document.getElementById("question").classList.add("hidden");
+  document.getElementById("surprise").classList.remove("hidden");
+  no.classList.remove("moving");
+}
+
+function showTime() {
+  alert(
+    "Take all the time you need, Anshika. ❤️ " +
+    "I respect your feelings, and I'm here to listen."
+  );
+}
+</script>
+</body>
+</html>
